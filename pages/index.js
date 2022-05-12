@@ -28,7 +28,6 @@ const Banner = ({ purpose, title1, title2, desc1,desc2, linkName, buttonText, im
 
 
 export default function Home({propertiesForRent, propertiesForSale}) {
-  console.log(propertiesForRent);
   return (
     <div>
       <h1>Hello World</h1>
