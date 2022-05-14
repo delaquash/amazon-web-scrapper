@@ -27,7 +27,6 @@ const Property =({ property : { coverPhoto, price, rentFrequency, rooms, title, 
                         <Avatar size="sm" src={agency?.logo?.url}/>
                     </Box>
                 </Flex>
-
                 {/* /* Aligning the items in the center and adding space between them. */ }
                 <Flex alignItems="center" justifyContent="space-between" p="1" w="250px" color="blue.400">
                     {rooms} <FaBed /> | {baths} <FaBath/> | {millify(area)} sqFt <BsGridFill />
