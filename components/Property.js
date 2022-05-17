@@ -14,7 +14,7 @@ const Property =({ property : { coverPhoto, price, rentFrequency, rooms, title, 
                 <Image  src={coverPhoto ? coverPhoto.url : DefaultImage} width={400} height={260} alt="Rental" />
             </Box>
             <Box w="full">
-                <Flex alignItems="center">
+                <Flex alignItems="center" paddingTop="2" justifyContent="space-between">
                     <Box paddingRight="3" color="green.400">
                         { isVerified && <GoVerified /> }
                     </Box>
