@@ -61,15 +61,13 @@ export async function getServerSideProps({ query }) {
     const locationExternalIDs = query.locationExternalIDs || '5002';
     const categoryExternalID = query.categoryExternalID || '4';
 
-    const data = await fetchApi(`${baseURL}`)
-    console.log(data)
 
-    // const data = await axios.get(`${baseURL}/properties/list?locationExternalIDs=${locationExternalIDs}&purpose=${purpose}$categoryExternalID=${categoryExternalID}&bathsMin=${bathsMin}&rentFrequency=${rentFrequency}&priceMin=${minPrice}&priceMax=${maxPrice}&roomsMin=${roomsMin}&sort=${sort}&areaMax=${areaMax}`);
-    
-//     console.log(data);
-//     return {
-//       props: {
-//         properties: data?.hits
-//       }
-//     }
+
+    const data = await fetchApi(`${baseURL}/properties/list?locationExternalIDs=${locationExternalIDs}&purpose=${purpose}&categoryExternalID=${categoryExternalID}&bathsMin=${bathsMin}&rentFrequency=${rentFrequency}&priceMin=${minPrice}&priceMax=${maxPrice}&roomsMin=${roomsMin}&sort=${sort}&areaMax=${areaMax}`);
+ 
+     return {
+       props: {
+         properties: data?.hits
+      }
+     }
   }
