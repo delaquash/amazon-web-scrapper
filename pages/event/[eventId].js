@@ -19,7 +19,11 @@ const EventDetailPage =()=> {
  /* A function that is getting the event by the id. */
  const event= getEventById(eventId)
  if(!event) {
-   return <p>No event found</p>
+   return (
+     <ErrorAlert>
+        <p>No event found</p>
+     </ErrorAlert>
+   )
  }
   return (
     <Fragment>
