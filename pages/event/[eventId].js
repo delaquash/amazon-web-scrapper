@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { Fragment } from "react";
-import { getEventById } from '../../dummy-data';
+import { getEventById } from '../../helpers/api_utils';
 import EventSummary from "../../components/event-detail/event-summary";
 import EventLogistics from "../../components/event-detail/event-logistics";
 import EventContent from "../../components/event-detail/event-content";
@@ -8,16 +8,9 @@ import ErrorAlert from "../../components/ui/error-alert";
 
 
 
-const EventDetailPage =()=> {
-
-  /* A hook that gives us access to the router object. */
-  const router = useRouter();
-
-  /* Getting the id from the url. */
-  const eventId = router.query.eventId;
-
+const EventDetailPage =(props)=> {
  /* A function that is getting the event by the id. */
- const event= getEventById(eventId)
+ const event= props(selectedEvent);
  if(!event) {
    return (
      <ErrorAlert>
@@ -40,5 +33,18 @@ const EventDetailPage =()=> {
     </Fragment>
   )
 }
+
+export async function getStaticProps(context){
+  const eventId = context.params.eventId
+  const event = await getEventById(eventId)
+
+  return {
+    props: {
+      selectedEvent: event
+    }
+  }
+
+}
+
 
 export default EventDetailPage;
