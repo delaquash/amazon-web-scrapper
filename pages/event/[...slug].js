@@ -1,5 +1,6 @@
 import { Fragment } from 'react';
 import { useRouter } from 'next/router';
+import useSWR from 'swr';
 import EventList from '../../components/events/event-list';
 import ResultsTitle from '../../components/events/results-title';
 import { getFilteredEvents } from '../../helpers/api_utils';
@@ -7,9 +8,9 @@ import Button from '../../components/ui/button';
 import ErrorAlert from '../../components/ui/error-alert';
 
 
-const filteredEventPages =(props)=> {
+const FilteredEventPages =(props)=> {
     const router = useRouter()
-    // const filterData = router.query.slug;
+    const filterData = router.query.slug;
     
 
     // if(!filterData) {
@@ -38,7 +39,7 @@ const filteredEventPages =(props)=> {
         </Fragment>
     )}
 
-    const filteredEvent = props.event
+    const filteredEvents = props.event
 
     if(!filteredEvents || filteredEvents === 0) {
         return (
@@ -95,4 +96,4 @@ export async function getServerSideProps(context) {
 }
 
 
-export default filteredEventPages
+export default FilteredEventPages

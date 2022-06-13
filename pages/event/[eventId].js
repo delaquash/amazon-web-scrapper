@@ -6,7 +6,6 @@ import EventContent from "../../components/event-detail/event-content";
 import ErrorAlert from "../../components/ui/error-alert";
 
 
-
 const EventDetailPage =(props)=> {
  /* A function that is getting the event by the id. */
  const event= props.selectedEvent;
